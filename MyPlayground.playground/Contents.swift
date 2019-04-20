@@ -1,5 +1,3 @@
-import UIKit
-
 /**
  Assignment 4
  
@@ -78,7 +76,7 @@ func getSeconds (value: UInt, unit: String) -> UInt {
  * @returns String
  */
 func validateValueLabels (value: UInt, unit: String) -> String {
-    let newUnit : String = String(unit.dropFirst())
+    let newUnit : String = String(unit.dropFirst()) // to account for the first s in second
     if (value == 1 && newUnit.contains("s")) {
         return "This is imposible because \"\(unit)\" is plural and \(value) is singular."
     } else if (value != 1 && !newUnit.contains("s")) {
@@ -157,5 +155,5 @@ timeAdder(value1: 25, label1: "hours", value2: 3, label2: "seconds") // (90003, 
 timeAdder(value1: 25, label1: "hour", value2: 3, label2: "seconds") // Error
 timeAdder(value1: 23, label1: "hours", value2: 0, label2: "seconds") // (23, "hours")
 timeAdder(value1: 23, label1: "hours", value2: 1, label2: "hour") // (1, "day")
-timeAdder(value1: 23, label1: "hours", value2: 2, label2: "hours") // (23, "hours")
+timeAdder(value1: 23, label1: "hours", value2: 2, label2: "hours") // (25, "hours")
 timeAdder(value1: 25, label1: "hour", value2: 1, label2: "seconds") // Error
